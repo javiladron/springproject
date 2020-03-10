@@ -12,7 +12,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+//import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -21,7 +21,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @SpringBootApplication
 @ComponentScan({"com.example.springproject.*"})
-@EnableJpaRepositories("com.example.springproject.daos")
+//@EnableJpaRepositories("com.example.springproject.daos")
 public class SpringprojectApplication extends SpringBootServletInitializer 
 {
 	public static void main(String[] args) {
@@ -55,10 +55,10 @@ public class SpringprojectApplication extends SpringBootServletInitializer
 		};
 	}
 	
-	@Bean
-	@Primary
-	@ConfigurationProperties(prefix="spring.datasource")
-	public DataSource primaryDataSource() {
-	    return DataSourceBuilder.create().build();
-	}
+//	@Bean
+//	@Primary
+//	@ConfigurationProperties(prefix="spring.datasource")
+//	public DataSource primaryDataSource() {
+//	    return DataSourceBuilder.create().build();
+//	}
 }
