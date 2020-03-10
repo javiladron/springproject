@@ -1,6 +1,7 @@
 package com.example.springproject.helloword;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -12,7 +13,8 @@ public class MainApp {
 
 	public static void main(String[] args) {
 		  //cargamos contexto de spring
-		  ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+		  //ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+			ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		  //solicitamos la inyeccion de dependecias para el bean MessageModel
 	      MessageModel obj = (MessageModel) context.getBean("messageModel");
 	      obj.getMessage();
