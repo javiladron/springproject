@@ -19,6 +19,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+
+/**
+ * Clase principal (main) de una una aplicacion spring mvc
+ * @author jladron
+ *
+ */
 @SpringBootApplication
 @ComponentScan({"com.example.springproject.*"})
 //@EnableJpaRepositories("com.example.springproject.daos")

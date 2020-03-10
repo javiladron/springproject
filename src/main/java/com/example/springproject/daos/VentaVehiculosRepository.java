@@ -7,9 +7,14 @@ import java.util.Map;
 
 import com.example.springproject.model.VehiculoModel;
 
+/**
+ * Clase repositorio que permite gestionar un garaje de vehiculos en memoria. No hay persistencia, no hay base de datos
+ * @author jladron
+ *
+ */
 public class VentaVehiculosRepository {
 	
-	private Map<String,VehiculoModel> garage=new HashMap<String,VehiculoModel>();
+	private Map<String,VehiculoModel> garaje=new HashMap<String,VehiculoModel>();
 
 	private static VentaVehiculosRepository instance=null;
 	
@@ -23,16 +28,16 @@ public class VentaVehiculosRepository {
 	}
 	
 	public void insertaNuevo(VehiculoModel vehiculo) {
-		garage.put(vehiculo.getMatricula(), vehiculo);
+		garaje.put(vehiculo.getMatricula(), vehiculo);
 	}
 	
 	public VehiculoModel dameVehiculo(String matricula) {
-		return garage.get(matricula);
+		return garaje.get(matricula);
 	}
 	
 	public List<VehiculoModel> dameTodos(){
 		
-		return new ArrayList<VehiculoModel>(garage.values());
+		return new ArrayList<VehiculoModel>(garaje.values());
 	}
 	
 	

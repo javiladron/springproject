@@ -11,12 +11,21 @@ import com.example.springproject.model.CocheModel;
 import com.example.springproject.model.MotoModel;
 import com.example.springproject.model.VehiculoModel;
 
+/**
+ * Componente service encapsular la logica de las operaciones basicas de la aplicacion SpringProject
+ * @author jladron
+ *
+ */
 @Service
 public class ServiceRentaVehiculosImpl implements IServiceRentaVehiculos{
 	
 	VentaVehiculosRepository repoVehiculos=null;
 	
+	/**
+	 * Constructor inicial para cargar ejemplos de vehiculos
+	 */
 	private ServiceRentaVehiculosImpl() {
+		
 		repoVehiculos=VentaVehiculosRepository.getInstance();
 		
 		List<VehiculoModel> listadoFlota=repoVehiculos.dameTodos();
@@ -52,7 +61,10 @@ public class ServiceRentaVehiculosImpl implements IServiceRentaVehiculos{
 			
 		}
 	}
-
+	
+	/**
+	 * Devuelve vehiculo que coindice con la matricula pasada
+	 */
 	@Override
 	public VehiculoModel getVehiculoByMatricula(String matricula) {
 		repoVehiculos=VentaVehiculosRepository.getInstance();
@@ -62,6 +74,9 @@ public class ServiceRentaVehiculosImpl implements IServiceRentaVehiculos{
 		return null;
 	}
 
+	/**
+	 * Devuelve todos los vehiculos que tenemos en el garaje
+	 */
 	@Override
 	public List<VehiculoModel> getAllVehiculos() {
 		repoVehiculos=VentaVehiculosRepository.getInstance();

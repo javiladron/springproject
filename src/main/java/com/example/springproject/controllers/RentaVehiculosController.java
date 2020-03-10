@@ -15,14 +15,26 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.springproject.model.VehiculoModel;
 import com.example.springproject.services.IServiceRentaVehiculos;
 
+/**
+ * Controlador REST Spring project
+ * @author jladron
+ *
+ */
 @RestController
 @RequestMapping("/api")
 public class RentaVehiculosController {
 	
+	//Inyectamos dependencia del servicio
 	@Autowired
 	private IServiceRentaVehiculos serviceRentaVehiculos;
 	
 	
+	/**
+	 * Endpoint que devuelve datos de un vehiculo unico a partir de su matricula
+	 * @param request
+	 * @param matricula
+	 * @return
+	 */
 	@GetMapping("/vehicle/{matricula}")
 	public ResponseEntity<?> getVehiculoByMatricula(HttpServletRequest request,@PathVariable String matricula){
 		ResponseEntity<?> res=null;
@@ -30,6 +42,11 @@ public class RentaVehiculosController {
 		return res;
 	}
 	
+	/**
+	 * Devuelve todos los vehiculos guardados en el garaje
+	 * @param request
+	 * @return
+	 */
 	@GetMapping("/vehicles")
 	public ResponseEntity<?> getVehiculoByMatricula(HttpServletRequest request){
 		ResponseEntity<?> res=null;

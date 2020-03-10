@@ -7,6 +7,7 @@
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
    <bean id = "messageModel" class = "com.example.springproject.helloword.MessageModel">
+   	  <constructor-arg name="param" value="Test parameter value" />
       <property name = "message" value = "Test message to Pablo"/>
    </bean>
 
