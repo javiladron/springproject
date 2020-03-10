@@ -1,5 +1,7 @@
 package com.example.springproject.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,13 @@ public class RentaVehiculosController {
 	public ResponseEntity<?> getVehiculoByMatricula(HttpServletRequest request,@PathVariable String matricula){
 		ResponseEntity<?> res=null;
 		res=new ResponseEntity<VehiculoModel>(serviceRentaVehiculos.getVehiculoByMatricula(matricula),HttpStatus.OK);
+		return res;
+	}
+	
+	@GetMapping("/vehicles")
+	public ResponseEntity<?> getVehiculoByMatricula(HttpServletRequest request){
+		ResponseEntity<?> res=null;
+		res=new ResponseEntity<List<VehiculoModel>>(serviceRentaVehiculos.getAllVehiculos(),HttpStatus.OK);
 		return res;
 	}
 }

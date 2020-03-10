@@ -1,6 +1,6 @@
 package com.example.springproject.model;
 
-public class MotoModel {
+public class MotoModel extends VehiculoModel{
 	
 	private String modelo;
 	private String descripcion;

@@ -1,8 +1,14 @@
 package com.example.springproject.services;
 
+import java.util.List;
+
 import com.example.springproject.model.VehiculoModel;
 
 public interface IServiceRentaVehiculos {
 	
 	public VehiculoModel getVehiculoByMatricula(String matricula);
+	
+	public List<VehiculoModel> getAllVehiculos();
+	
+	
 }
