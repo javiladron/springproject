@@ -7,8 +7,6 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import com.example.springproject.model.CocheModel;
-import com.example.springproject.model.MotoModel;
 import com.example.springproject.model.VehiculoModel;
 
 /**
@@ -24,31 +22,34 @@ public class VentaVehiculosRepository {
 
 	
 	private VentaVehiculosRepository() {
-		CocheModel coche=new CocheModel();
+		VehiculoModel coche=new VehiculoModel();
 		coche.setAnnioFab(Integer.valueOf(2012));
 		coche.setDescripcion("Coche diesel gama baja de Volkswagen");
 		coche.setModelo("Volkswagen Polo");
 		coche.setMatricula("4538GYT");
 		coche.setPeso(Double.valueOf(1450));
 		coche.setModoAlquiler("basico");
-		coche.setTipo("diesel");
+		coche.setCombustible("diesel");
+		coche.setTipo("C");
 		insertaNuevo(coche);
-		coche=new CocheModel();
+		coche=new VehiculoModel();
 		coche.setAnnioFab(Integer.valueOf(2010));
 		coche.setDescripcion("Coche gasolina de peugeot");
 		coche.setModelo("Peugeout 407");
 		coche.setMatricula("8831HUQ");
 		coche.setPeso(Double.valueOf(975));
 		coche.setModoAlquiler("todo riesgo");
-		coche.setTipo("gasolina");
+		coche.setCombustible("gasolina");
+		coche.setTipo("C");
 		insertaNuevo(coche);
-		MotoModel moto=new MotoModel();
+		VehiculoModel moto=new VehiculoModel();
 		moto.setAnnioFab(Integer.valueOf(2015));
 		moto.setDescripcion("Moto eléctrica de BMW");
 		moto.setMatricula("1399AOT");
 		moto.setModelo("BMW 360T");
 		moto.setModoAlquiler("todo riesgo");
 		moto.setPeso(Double.valueOf(159));
+		coche.setTipo("M");
 		insertaNuevo(moto);
 		
 	};
