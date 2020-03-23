@@ -10,5 +10,7 @@ public interface IServiceRentaVehiculos {
 	
 	public List<VehiculoModel> getAllVehiculos();
 	
+	public VehiculoModel setVehiculo(VehiculoModel vehiculo);
+	
 	
 }

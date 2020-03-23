@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -51,6 +53,15 @@ public class RentaVehiculosController {
 	public ResponseEntity<?> getVehiculoByMatricula(HttpServletRequest request){
 		ResponseEntity<?> res=null;
 		res=new ResponseEntity<List<VehiculoModel>>(serviceRentaVehiculos.getAllVehiculos(),HttpStatus.OK);
+		return res;
+	}
+	
+	
+	//@RequestMapping(value="vehicles",method = RequestMethod.POST)
+	@PostMapping("/set/vehicle")
+	public ResponseEntity<?> setVehiculo(HttpServletRequest request,@RequestBody VehiculoModel vehiculo){
+		ResponseEntity<?> res=null;
+		res=new ResponseEntity<VehiculoModel>(serviceRentaVehiculos.setVehiculo(vehiculo),HttpStatus.OK);
 		return res;
 	}
 }

@@ -47,7 +47,7 @@
 <div role="main" class="container">
   <div class="row">
   	<div class="col-md-12">
-  		<h1>Listado de vehiculos</h1>
+  		<h1>Listado de vehiculos <strong>${nombreEmpresa }</strong></h1>
   	</div>
   </div>
   <div class="row">
@@ -63,7 +63,42 @@
 		    </tr>
 		  </thead>
 		  <tbody id="tableListado">
-		    <tr>
+		  
+		  <%-- <c:forEach var="vehiculo" items="${flotaListado }">
+		  	<tr>
+		      
+		      <td>${vehiculo.matricula }</td>
+		       <c:choose>
+		      	<c:when test="${vehiculo.tipo eq 'C' }">
+		      		<td style="color:red;">${vehiculo.modelo }</td>
+		      	</c:when>
+		      	<c:otherwise>
+		      		<td style="color:blue;">${vehiculo.modelo }</td>
+		      	</c:otherwise>
+		      </c:choose>
+		      
+		      <c:set var="colorTipo" value="blue"/>
+		      <c:if test="${vehiculo.tipo eq 'C' }">
+		      	<c:set var="colorTipo" value="red"/>
+		      </c:if>
+		      
+		      <td style="color:${colorTipo};">${vehiculo.modelo }</td>
+		      <td>${vehiculo.modoAlquiler }</td>
+		      <td>${vehiculo.combustible }</td>
+		      <td>${vehiculo.annioFab }</td>
+		    </tr>
+		  </c:forEach>--%>
+		  
+		  <!-- 
+		  	ESTO ES UN COMENTIARIO HTML QUE SE VA A IMPRIMIR EN EL CODIGO FUENTE DE LA PAGINA
+		  	<tr>
+		      
+		      <td>JAVI	</td>
+		      <td>PABLO</td>
+		      
+		    </tr>
+		   -->
+		    <%-- <tr>
 		      
 		      <td>Mark</td>
 		      <td>Otto</td>
@@ -86,7 +121,7 @@
 		      <td>@twitter</td>
 		      <td>Otto</td>
 		      <td>@mdo</td>
-		    </tr>
+		    </tr> --%>
 		  </tbody>
 		</table>
 	  </div>
@@ -99,10 +134,10 @@
 	<script src="<c:url value="/estaticos/js/custom.js"/>"></script>
 	
 	<script>
-	    /*$( document ).ready(function() {
+	    $( document ).ready(function() {
 	    	
 	    	getVehiculos('${pageContext.request.contextPath}');
 
-	    });*/
+	    });
     </script>
 </html>

@@ -178,12 +178,15 @@ function serializeDate(fecha){
 
 
 function getVehiculos(context){
-	var resJson=callServiceREST(context+"/api/vehicles","GET",null);
-	if(isNotEmpty(resJson)){
-		alert(JSON.stringify(resJson));
-		$.each(resJson, function(i, vehiculo) {
-			console.log(JSON.stringify(vehiculo));
+	var flotaListado=callServiceREST(context+"/api/vehicles","GET",null);
+	if(isNotEmpty(flotaListado)){
+		var htmlBuffer='';
+		$.each(flotaListado, function(i, vehiculo) {
+			var colorTipo=vehiculo.tipo ==="C" ? "red" : "blue"; 
+			//htmlBuffer=htmlBuffer+'<tr><td>'+vehiculo.matricula+'</td><td>'+vehiculo.modelo+'</td><td>'+vehiculo.modoAlquiler+'</td><td>'+vehiculo.combustible+'</td><td>'+vehiculo.annioFab+'</td></tr>';
+			htmlBuffer+='<tr><td>'+vehiculo.matricula+'</td><td style="color:'+colorTipo+';">'+vehiculo.modelo+'</td><td>'+vehiculo.modoAlquiler+'</td><td>'+(isNotEmpty(vehiculo.combustible) ? vehiculo.combustible : "")+'</td><td>'+vehiculo.annioFab+'</td></tr>';
 		});
+		$("#tableListado").html(htmlBuffer);
 	}
 }
 

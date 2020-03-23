@@ -44,6 +44,12 @@ public class ServiceRentaVehiculosImpl implements IServiceRentaVehiculos{
 		
 		return repoVehiculos.dameTodos();
 	}
+
+	@Override
+	public VehiculoModel setVehiculo(VehiculoModel vehiculo) {
+		repoVehiculos.insertaNuevo(vehiculo);
+		return vehiculo;
+	}
 	
 	
 	
