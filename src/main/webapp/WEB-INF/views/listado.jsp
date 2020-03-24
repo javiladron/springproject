@@ -32,10 +32,10 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="${pageContext.request.contextPath}/pages/listado">Listado <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="${pageContext.request.contextPath}/pages/listado">Listado</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Crear</a>
+        <a class="nav-link" href="${pageContext.request.contextPath}/pages/nuevo">Crear</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Salir</a>

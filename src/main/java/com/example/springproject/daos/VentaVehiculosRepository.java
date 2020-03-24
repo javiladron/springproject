@@ -38,7 +38,7 @@ public class VentaVehiculosRepository {
 		coche2.setModelo("Peugeout 407");
 		coche2.setMatricula("8831HUQ");
 		coche2.setPeso(Double.valueOf(975));
-		coche2.setModoAlquiler("todo riesgo");
+		coche2.setModoAlquiler("todoRiesgo");
 		coche2.setCombustible("gasolina");
 		coche2.setTipo("C");
 		insertaNuevo(coche2);
@@ -47,7 +47,7 @@ public class VentaVehiculosRepository {
 		moto.setDescripcion("Moto eléctrica de BMW");
 		moto.setMatricula("1399AOT");
 		moto.setModelo("BMW 360T");
-		moto.setModoAlquiler("todo riesgo");
+		moto.setModoAlquiler("todoRiesgo");
 		moto.setPeso(Double.valueOf(159));
 		moto.setTipo("M");
 		insertaNuevo(moto);
