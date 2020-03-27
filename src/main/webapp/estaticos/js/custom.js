@@ -193,25 +193,32 @@ function getVehiculos(context){
 
 
 function setVehiculo(context){
+	var datos={
+		"modelo": $("#modelo").val(),
+	    "descripcion": $("#descripcion").val(),
+	    "combustible": $("#combustible").val(),
+	    "tipo": $("#tipo").val(),
+	    "matricula": $("#matricula").val(),
+	    "annioFab": parseInt($("#annioFab").val()),
+	    "peso": parseFloat($("#peso").val()),
+	    "modoAlquiler": $("#modoAlquiler").val()
+	};
+	
+	
+	
 	
 	$.ajax({
         method : "POST",
         contentType : 'application/json',
-        url :  context+'/api/setvehiculo',
+        url :  context+'/api/set/vehicle',
         dataType : 'json',
         data : JSON.stringify(datos),
 		timeout: 30000,
 		success: function(result){
 			//pinto resultados
-			var resJson=result;
-			
-			
-			$.each(resJson, function(i, cliente) {
-				
-			
-			});
-			
-			
+			var cocheRes=result;
+			alert("Vehículo "+cocheRes.modelo+" con matricula "+cocheRes.matricula+" dado de alta correctamente");
+			redirectPage(context,"pages/listado");
 			
 		},
 		error: function (jqXHR, exception) {

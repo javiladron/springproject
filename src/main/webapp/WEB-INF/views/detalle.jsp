@@ -160,6 +160,66 @@
 	 </div>
   </div>
   </form:form> --%>
+  
+  
+  <%-- 3ª forma: llamada AJAX POST por JAVASCRIPT --%>
+  
+  <div class="row">
+  	<div class="col-md-4 col-sm-4 col-xs-12">
+	   	<label for="matricula">Matricula</label>
+    	<input type="text" class="form-control" id="matricula" name="matricula" />
+	</div>
+	<div class="col-md-4 col-sm-4 col-xs-12">
+	   	<label for="modelo">Modelo</label>
+    	<input type="text" class="form-control" id="modelo" name="modelo"/>
+	 </div>
+	 <div class="col-md-4 col-sm-4 col-xs-12">
+	   	<label for="descripcion">Descripcion</label>
+    	<input type="text" class="form-control" id="descripcion" name="descripcion"/>
+	 </div>
+  </div>
+  <div class="row">
+  	<div class="col-md-4 col-sm-4 col-xs-12">
+	   	<label for="combustible">Combustible</label>
+    	<select class="form-control" id="combustible"  name="combustible">
+    		<option value="diesel">Diesel</option>
+    		<option value="gasolina">Gasolina</option>
+    	</select>
+	</div>
+	<div class="col-md-4 col-sm-4 col-xs-12">
+	   	<label for="tipo">Tipo vehiculo</label>
+    	<select class="form-control" id="tipo" name="tipo">
+    		<option value="C">Coche</option>
+    		<option value="M">Moto</option>
+    	</select>
+	 </div>
+	 <div class="col-md-4 col-sm-4 col-xs-12">
+	   	<label for="annioFab">A&ntildeo fabricacion</label>
+    	<input type="text" class="form-control" id="annioFab" name="annioFab"/>
+	 </div>
+  </div>
+  <div class="row">
+  	<div class="col-md-4 col-sm-4 col-xs-12">
+	   	<label for="peso">Peso</label>
+    	<input type="text" class="form-control" id="peso" name="peso"/>
+	</div>
+	<div class="col-md-4 col-sm-4 col-xs-12">
+	   	<label for="modoAlquiler">Modo alquiler</label>
+    	<select class="form-control" id="modoAlquiler" name="modoAlquiler">
+    		<option value="basico">Basico</option>
+    		<option value="todoRiesgo">Todo riesgo</option>
+    	</select>
+	 </div>
+	 <div class="col-md-4 col-sm-4 col-xs-12">
+	 	<br/>
+	   	<button onclick="setVehiculo('${pageContext.request.contextPath}')" class="btn btn-primary form-control">CREAR</button>
+	 </div>
+  </div>
+ 
+  
+  
+  
+  
 </div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
