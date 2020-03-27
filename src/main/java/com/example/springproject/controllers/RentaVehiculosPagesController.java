@@ -39,10 +39,12 @@ public class RentaVehiculosPagesController {
 		//return "/WEB-INF/views/listado.jsp";
 	}
 	
+	//CREAR NUEVO VEHICULO
+	
 	@GetMapping("/pages/nuevo")
 	public String crearNuevoVehiculo(HttpServletRequest request,Model model){
-		//para formulario de spring le metemos el modelo vacio
-		model.addAttribute("vehiculo",new VehiculoModel());
+		//para formulario de spring le metemos el modelo vehiculomodel vacio
+		//model.addAttribute("vehiculo",new VehiculoModel());
 		return "detalle";
 		
 	}
@@ -66,6 +68,17 @@ public class RentaVehiculosPagesController {
 	public String formSpringHtmlSetVehiculo(HttpServletRequest request,Model model,@ModelAttribute("vehiculo") VehiculoModel vehiculo) {
 		serviceRentaVehiculos.setVehiculo(vehiculo);
 		return showListado(request, model);
+	}
+	
+	//DETALLE Y MODIFICACION DE VEHICULO
+	@GetMapping("/pages/detalle")
+	public String detalleVehilo(HttpServletRequest request,Model model){
+		//extraemos datos del vehiculo
+		String matricula=request.getParameter("mat");
+		VehiculoModel vehiculo=serviceRentaVehiculos.getVehiculoByMatricula(matricula);
+		model.addAttribute("veh",vehiculo);
+		return "detalle";
+		
 	}
 	
 

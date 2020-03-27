@@ -47,7 +47,15 @@
 <div role="main" class="container">
   <div class="row">
   	<div class="col-md-12">
-  		<h1>Nuevo vehiculo</h1>
+  		<c:choose>
+  			<c:when test="${not empty(veh) }">
+  				<h1>${veh.modelo }</h1>
+  			</c:when>
+  			<c:otherwise>
+  				<h1>Nuevo vehiculo</h1>
+  				
+  			</c:otherwise>
+  		</c:choose>
   	</div>
   </div>
   <%-- FORMULARIO HTML BASICO --%>
@@ -167,52 +175,96 @@
   <div class="row">
   	<div class="col-md-4 col-sm-4 col-xs-12">
 	   	<label for="matricula">Matricula</label>
-    	<input type="text" class="form-control" id="matricula" name="matricula" />
+    	<input type="text" class="form-control" id="matricula" name="matricula" value="${veh.matricula }"/>
 	</div>
 	<div class="col-md-4 col-sm-4 col-xs-12">
 	   	<label for="modelo">Modelo</label>
-    	<input type="text" class="form-control" id="modelo" name="modelo"/>
+    	<input type="text" class="form-control" id="modelo" name="modelo" value="${veh.modelo }"/>
 	 </div>
 	 <div class="col-md-4 col-sm-4 col-xs-12">
 	   	<label for="descripcion">Descripcion</label>
-    	<input type="text" class="form-control" id="descripcion" name="descripcion"/>
+    	<input type="text" class="form-control" id="descripcion" name="descripcion" value="${veh.descripcion }"/>
 	 </div>
   </div>
   <div class="row">
   	<div class="col-md-4 col-sm-4 col-xs-12">
 	   	<label for="combustible">Combustible</label>
     	<select class="form-control" id="combustible"  name="combustible">
-    		<option value="diesel">Diesel</option>
-    		<option value="gasolina">Gasolina</option>
+    		<c:choose>
+    			<c:when test="${veh.combustible eq 'diesel' }">
+    				<option value="diesel" selected="selected">Diesel</option>
+    				<option value="gasolina">Gasolina</option>
+    			</c:when>
+    			<c:otherwise>
+    				<option value="diesel">Diesel</option>
+    				<option value="gasolina" selected="selected">Gasolina</option>
+    			</c:otherwise>
+    		</c:choose>
+    		
     	</select>
 	</div>
 	<div class="col-md-4 col-sm-4 col-xs-12">
 	   	<label for="tipo">Tipo vehiculo</label>
     	<select class="form-control" id="tipo" name="tipo">
-    		<option value="C">Coche</option>
-    		<option value="M">Moto</option>
+    		<c:choose>
+    			<c:when test="${veh.tipo eq 'C' }">
+    				<option value="C" selected="selected">Coche</option>
+    				<option value="M">Moto</option>
+    			</c:when>
+    			<c:otherwise>
+    				<option value="C">Coche</option>
+    				<option value="M" selected="selected">Moto</option>
+    			</c:otherwise>
+    		</c:choose>
+    		
+    		
+    		
     	</select>
 	 </div>
 	 <div class="col-md-4 col-sm-4 col-xs-12">
 	   	<label for="annioFab">A&ntildeo fabricacion</label>
-    	<input type="text" class="form-control" id="annioFab" name="annioFab"/>
+    	<input type="text" class="form-control" id="annioFab" name="annioFab" value="${veh.annioFab }"/>
 	 </div>
   </div>
   <div class="row">
   	<div class="col-md-4 col-sm-4 col-xs-12">
 	   	<label for="peso">Peso</label>
-    	<input type="text" class="form-control" id="peso" name="peso"/>
+    	<input type="text" class="form-control" id="peso" name="peso" value="${veh.peso }"/>
 	</div>
 	<div class="col-md-4 col-sm-4 col-xs-12">
 	   	<label for="modoAlquiler">Modo alquiler</label>
     	<select class="form-control" id="modoAlquiler" name="modoAlquiler">
-    		<option value="basico">Basico</option>
-    		<option value="todoRiesgo">Todo riesgo</option>
+    		    		
+    		
+    		<c:choose>
+    			<c:when test="${veh.modoAlquiler eq 'basico' }">
+    				<option value="basico" selected="selected">Basico</option>
+    				<option value="todoRiesgo">Todo riesgo</option>
+
+    			</c:when>
+    			<c:otherwise>
+    				<option value="basico">Basico</option>
+    				<option value="todoRiesgo" selected="selected">Todo riesgo</option>
+
+    			</c:otherwise>
+    		</c:choose>
+    		
+    		
+    		
     	</select>
 	 </div>
 	 <div class="col-md-4 col-sm-4 col-xs-12">
 	 	<br/>
-	   	<button onclick="setVehiculo('${pageContext.request.contextPath}')" class="btn btn-primary form-control">CREAR</button>
+	   	
+	   	<c:choose>
+  			<c:when test="${not empty(veh) }">
+  				<button onclick="setVehiculo('${pageContext.request.contextPath}')" class="btn btn-primary form-control">ACTUALIZAR</button>
+  			</c:when>
+  			<c:otherwise>
+  				<button onclick="setVehiculo('${pageContext.request.contextPath}')" class="btn btn-primary form-control">CREAR</button>
+  				
+  			</c:otherwise>
+  		</c:choose>
 	 </div>
   </div>
  
