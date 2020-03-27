@@ -18,7 +18,7 @@ import com.example.springproject.model.VehiculoModel;
 import com.example.springproject.services.IServiceRentaVehiculos;
 
 /**
- * Controlador REST Spring project
+ * Controlador REST Spring project cambio intelli
  * @author jladron
  *
  */
