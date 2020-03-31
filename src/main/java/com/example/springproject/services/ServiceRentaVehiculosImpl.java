@@ -3,6 +3,7 @@ package com.example.springproject.services;
 import java.util.List;
 
 
+import com.example.springproject.daos.IDAORentaVehiculosSQL;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,12 @@ public class ServiceRentaVehiculosImpl implements IServiceRentaVehiculos{
 	 */
 	@Autowired
 	VentaVehiculosRepository repoVehiculos;
+
+	/**
+	 * Inyectamos DAO, contra base de datos de forma nativa
+	 */
+	@Autowired
+	IDAORentaVehiculosSQL daoRentaVehiculosSQL;
 	
 	/**
 	 * Devuelve vehiculo que coindice con la matricula pasada
@@ -41,8 +48,9 @@ public class ServiceRentaVehiculosImpl implements IServiceRentaVehiculos{
 	 */
 	@Override
 	public List<VehiculoModel> getAllVehiculos() {
-		
-		return repoVehiculos.dameTodos();
+
+		//return repoVehiculos.dameTodos();
+		return daoRentaVehiculosSQL.getAllVehicles();
 	}
 
 	@Override

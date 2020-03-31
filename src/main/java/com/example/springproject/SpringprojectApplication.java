@@ -61,10 +61,10 @@ public class SpringprojectApplication extends SpringBootServletInitializer
 		};
 	}
 	
-//	@Bean
-//	@Primary
-//	@ConfigurationProperties(prefix="spring.datasource")
-//	public DataSource primaryDataSource() {
-//	    return DataSourceBuilder.create().build();
-//	}
+	@Bean
+	@Primary
+	@ConfigurationProperties(prefix="spring.datasource")
+	public DataSource primaryDataSource() {
+	    return DataSourceBuilder.create().build();
+	}
 }
