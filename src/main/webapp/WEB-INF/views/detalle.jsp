@@ -238,13 +238,21 @@
     		
     		<c:choose>
     			<c:when test="${veh.modoAlquiler eq 'basico' }">
+    			    <option value="libre" >Sin alquilar</option>
     				<option value="basico" selected="selected">Basico</option>
     				<option value="todoRiesgo">Todo riesgo</option>
 
     			</c:when>
+    			<c:when test="${veh.modoAlquiler eq 'todoRiesgo' }">
+                    <option value="libre" >Sin alquilar</option>
+                    <option value="basico">Basico</option>
+                    <option value="todoRiesgo" selected="selected">Todo riesgo</option>
+
+                </c:when>
     			<c:otherwise>
+    			    <option value="libre" selected="selected">Sin alquilar</option>
     				<option value="basico">Basico</option>
-    				<option value="todoRiesgo" selected="selected">Todo riesgo</option>
+    				<option value="todoRiesgo" >Todo riesgo</option>
 
     			</c:otherwise>
     		</c:choose>

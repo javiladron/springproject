@@ -2,7 +2,7 @@ package com.example.springproject.model;
 
 public class VehiculoModel {
 	
-	
+	private Integer idVehiculo;
 	private String modelo;
 	private String descripcion;
 	private String combustible;//gasolina, diesel etc
@@ -11,6 +11,7 @@ public class VehiculoModel {
 	private Integer annioFab;
 	private Double peso;
 	private String modoAlquiler;
+	private ClienteModel cliente;
 	
 	public String getModelo() {
 		return modelo;
@@ -60,9 +61,20 @@ public class VehiculoModel {
 	public void setModoAlquiler(String modoAlquiler) {
 		this.modoAlquiler = modoAlquiler;
 	}
-	
-	
-	
-	
 
+	public Integer getIdVehiculo() {
+		return idVehiculo;
+	}
+
+	public void setIdVehiculo(Integer idVehiculo) {
+		this.idVehiculo = idVehiculo;
+	}
+
+	public ClienteModel getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(ClienteModel cliente) {
+		this.cliente = cliente;
+	}
 }

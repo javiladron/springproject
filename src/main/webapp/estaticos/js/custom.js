@@ -184,7 +184,11 @@ function getVehiculos(context){
 		$.each(flotaListado, function(i, vehiculo) {
 			var colorTipo=vehiculo.tipo ==="C" ? "red" : "blue"; 
 			//htmlBuffer=htmlBuffer+'<tr><td>'+vehiculo.matricula+'</td><td>'+vehiculo.modelo+'</td><td>'+vehiculo.modoAlquiler+'</td><td>'+vehiculo.combustible+'</td><td>'+vehiculo.annioFab+'</td></tr>';
-			htmlBuffer+='<tr onclick="redirectPage(\''+context+'\',\'pages/detalle?mat='+vehiculo.matricula+'\');"><td>'+vehiculo.matricula+'</td><td style="color:'+colorTipo+';">'+vehiculo.modelo+'</td><td>'+vehiculo.modoAlquiler+'</td><td>'+(isNotEmpty(vehiculo.combustible) ? vehiculo.combustible : "")+'</td><td>'+vehiculo.annioFab+'</td></tr>';
+			var colorAlquilado="#84F361";
+			if(vehiculo.cliente.idCliente>0){
+			    colorAlquilado="#F8DCB1";
+			}
+			htmlBuffer+='<tr style="background-color:'+colorAlquilado+';" onclick="redirectPage(\''+context+'\',\'pages/detalle?mat='+vehiculo.matricula+'\');"><td>'+vehiculo.matricula+'</td><td style="color:'+colorTipo+';">'+vehiculo.modelo+'</td><td>'+(isNotEmpty(vehiculo.modoAlquiler) ? vehiculo.modoAlquiler : "") +'</td><td>'+(isNotEmpty(vehiculo.combustible) ? vehiculo.combustible : "")+'</td><td>'+vehiculo.annioFab+'</td></tr>';
 		});
 		$("#tableListado").html(htmlBuffer);
 	}
@@ -217,7 +221,13 @@ function setVehiculo(context){
 		success: function(result){
 			//pinto resultados
 			var cocheRes=result;
-			alert("Vehículo "+cocheRes.modelo+" con matricula "+cocheRes.matricula+" dado de alta correctamente");
+			if(isNotEmpty(cocheRes.idVehiculo)){//mensaje de actualizacion
+			    alert("Vehículo "+cocheRes.modelo+" con matricula "+cocheRes.matricula+" actualizado correctamente");
+			}
+			else{//mensaje de insert
+			    alert("Vehículo "+cocheRes.modelo+" con matricula "+cocheRes.matricula+" dado de alta correctamente");
+			}
+
 			redirectPage(context,"pages/listado");
 			
 		},

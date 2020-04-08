@@ -38,7 +38,8 @@ public class ServiceRentaVehiculosImpl implements IServiceRentaVehiculos{
 	public VehiculoModel getVehiculoByMatricula(String matricula) {
 		
 		if(StringUtils.isNotBlank(matricula)) {
-			return repoVehiculos.dameVehiculo(matricula);
+			//return repoVehiculos.dameVehiculo(matricula);
+			return daoRentaVehiculosSQL.getVehiculoByMatricula(matricula);
 		}
 		return null;
 	}
@@ -55,7 +56,8 @@ public class ServiceRentaVehiculosImpl implements IServiceRentaVehiculos{
 
 	@Override
 	public VehiculoModel setVehiculo(VehiculoModel vehiculo) {
-		repoVehiculos.insertaNuevo(vehiculo);
+		//repoVehiculos.insertaNuevo(vehiculo);
+		daoRentaVehiculosSQL.setVehiculo(vehiculo);
 		return vehiculo;
 	}
 	

@@ -1,10 +1,11 @@
 package com.example.springproject.model;
 
 public class ClienteModel {
-	
+
+	private Integer idCliente;
 	private String nombre;
 	private String apellidos;
-	private String edad;
+	private Integer edad;
 	private String dni;
 	
 	public String getNombre() {
@@ -13,7 +14,7 @@ public class ClienteModel {
 	public String getApellidos() {
 		return apellidos;
 	}
-	public String getEdad() {
+	public Integer getEdad() {
 		return edad;
 	}
 	public String getDni() {
@@ -25,13 +26,18 @@ public class ClienteModel {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-	public void setEdad(String edad) {
+	public void setEdad(Integer edad) {
 		this.edad = edad;
 	}
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-	
-	
 
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
 }
