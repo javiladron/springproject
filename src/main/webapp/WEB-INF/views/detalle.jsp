@@ -58,64 +58,118 @@
   		</c:choose>
   	</div>
   </div>
-  <%-- FORMULARIO HTML BASICO --%>
-  <%-- <form action="${pageContext.request.contextPath}/pages/set/form/vehicle" method="POST">
+  <%-- 1 FORMULARIO HTML BASICO
+  <form action="${pageContext.request.contextPath}/pages/set/form/vehicle" method="POST">
+
+
   <div class="row">
+    	<div class="col-md-4 col-sm-4 col-xs-12">
+  	   	<label for="matricula">Matricula</label>
+      	<input type="text" class="form-control" id="matricula" name="matricula" value="${veh.matricula }"/>
+  	</div>
   	<div class="col-md-4 col-sm-4 col-xs-12">
-	   	<label for="matricula">Matricula</label>
-    	<input type="text" class="form-control" id="matricula" name="matricula" />
-	</div>
-	<div class="col-md-4 col-sm-4 col-xs-12">
-	   	<label for="modelo">Modelo</label>
-    	<input type="text" class="form-control" id="modelo" name="modelo"/>
-	 </div>
-	 <div class="col-md-4 col-sm-4 col-xs-12">
-	   	<label for="descripcion">Descripcion</label>
-    	<input type="text" class="form-control" id="descripcion" name="descripcion"/>
-	 </div>
-  </div>
-  <div class="row">
+  	   	<label for="modelo">Modelo</label>
+      	<input type="text" class="form-control" id="modelo" name="modelo" value="${veh.modelo }"/>
+  	 </div>
+  	 <div class="col-md-4 col-sm-4 col-xs-12">
+  	   	<label for="descripcion">Descripcion</label>
+      	<input type="text" class="form-control" id="descripcion" name="descripcion" value="${veh.descripcion }"/>
+  	 </div>
+    </div>
+    <div class="row">
+    	<div class="col-md-4 col-sm-4 col-xs-12">
+  	   	<label for="combustible">Combustible</label>
+      	<select class="form-control" id="combustible"  name="combustible">
+      		<c:choose>
+      			<c:when test="${veh.combustible eq 'diesel' }">
+      				<option value="diesel" selected="selected">Diesel</option>
+      				<option value="gasolina">Gasolina</option>
+      			</c:when>
+      			<c:otherwise>
+      				<option value="diesel">Diesel</option>
+      				<option value="gasolina" selected="selected">Gasolina</option>
+      			</c:otherwise>
+      		</c:choose>
+
+      	</select>
+  	</div>
   	<div class="col-md-4 col-sm-4 col-xs-12">
-	   	<label for="combustible">Combustible</label>
-    	<select class="form-control" id="combustible"  name="combustible">
-    		<option value="diesel">Diesel</option>
-    		<option value="gasolina">Gasolina</option>
-    	</select>
-	</div>
-	<div class="col-md-4 col-sm-4 col-xs-12">
-	   	<label for="tipo">Tipo vehiculo</label>
-    	<select class="form-control" id="tipo" name="tipo">
-    		<option value="C">Coche</option>
-    		<option value="M">Moto</option>
-    	</select>
-	 </div>
-	 <div class="col-md-4 col-sm-4 col-xs-12">
-	   	<label for="annioFab">A&ntildeo fabricacion</label>
-    	<input type="text" class="form-control" id="annioFab" name="annioFab"/>
-	 </div>
-  </div>
-  <div class="row">
+  	   	<label for="tipo">Tipo vehiculo</label>
+      	<select class="form-control" id="tipo" name="tipo">
+      		<c:choose>
+      			<c:when test="${veh.tipo eq 'C' }">
+      				<option value="C" selected="selected">Coche</option>
+      				<option value="M">Moto</option>
+      			</c:when>
+      			<c:otherwise>
+      				<option value="C">Coche</option>
+      				<option value="M" selected="selected">Moto</option>
+      			</c:otherwise>
+      		</c:choose>
+
+
+
+      	</select>
+  	 </div>
+  	 <div class="col-md-4 col-sm-4 col-xs-12">
+  	   	<label for="annioFab">A&ntildeo fabricacion</label>
+      	<input type="text" class="form-control" id="annioFab" name="annioFab" value="${veh.annioFab }"/>
+  	 </div>
+    </div>
+    <div class="row">
+    	<div class="col-md-4 col-sm-4 col-xs-12">
+  	   	<label for="peso">Peso</label>
+      	<input type="text" class="form-control" id="peso" name="peso" value="${veh.peso }"/>
+  	</div>
   	<div class="col-md-4 col-sm-4 col-xs-12">
-	   	<label for="peso">Peso</label>
-    	<input type="text" class="form-control" id="peso" name="peso"/>
-	</div>
-	<div class="col-md-4 col-sm-4 col-xs-12">
-	   	<label for="modoAlquiler">Modo alquiler</label>
-    	<select class="form-control" id="modoAlquiler" name="modoAlquiler">
-    		<option value="basico">Basico</option>
-    		<option value="todoRiesgo">Todo riesgo</option>
-    	</select>
-	 </div>
-	 <div class="col-md-4 col-sm-4 col-xs-12">
-	 	<br/>
-	   	<input type="submit" class="btn btn-primary form-control" value="CREAR" />
-	 </div>
-  </div>
-  </form>
-  --%>
+  	   	<label for="modoAlquiler">Modo alquiler</label>
+      	<select class="form-control" id="modoAlquiler" name="modoAlquiler">
+
+
+      		<c:choose>
+      			<c:when test="${veh.modoAlquiler eq 'basico' }">
+      			    <option value="libre" >Sin alquilar</option>
+      				<option value="basico" selected="selected">Basico</option>
+      				<option value="todoRiesgo">Todo riesgo</option>
+
+      			</c:when>
+      			<c:when test="${veh.modoAlquiler eq 'todoRiesgo' }">
+                      <option value="libre" >Sin alquilar</option>
+                      <option value="basico">Basico</option>
+                      <option value="todoRiesgo" selected="selected">Todo riesgo</option>
+
+                  </c:when>
+      			<c:otherwise>
+      			    <option value="libre" selected="selected">Sin alquilar</option>
+      				<option value="basico">Basico</option>
+      				<option value="todoRiesgo" >Todo riesgo</option>
+
+      			</c:otherwise>
+      		</c:choose>
+
+
+
+      	</select>
+  	 </div>
+  	 <div class="col-md-4 col-sm-4 col-xs-12">
+  	 	<br/>
+
+  	   	<c:choose>
+    			<c:when test="${not empty(veh) }">
+    				<input type="submit" class="btn btn-primary form-control" value="ACTUALIZAR" />
+    			</c:when>
+    			<c:otherwise>
+    				<input type="submit" class="btn btn-primary form-control" value="CREAR" />
+
+    			</c:otherwise>
+    		</c:choose>
+  	 </div>
+    </div>
+  </form> --%>
+
   
-  <%-- FORMULARIO TAGS DE SPRING --%>
-  <%-- <form:form method="POST" action="${pageContext.request.contextPath}/pages/set/formspring/vehicle" modelAttribute="vehiculo">
+  <%-- 2 FORMULARIO TAGS DE SPRING --%>
+  <%-- <form:form method="POST" action="${pageContext.request.contextPath}/pages/set/formspring/vehicle" modelAttribute="veh">
   <div class="row">
   	<div class="col-md-4 col-sm-4 col-xs-12">
 	   	<label for="matricula">Matricula</label>
@@ -163,16 +217,25 @@
 	   	</form:select>
 	 </div>
 	 <div class="col-md-4 col-sm-4 col-xs-12">
-	 	<br/>
-	   	<input type="submit" class="btn btn-primary form-control" value="CREAR" />
-	 </div>
+        <br/>
+
+        <c:choose>
+                <c:when test="${not empty(veh) }">
+                    <input type="submit" class="btn btn-primary form-control" value="ACTUALIZAR" />
+                </c:when>
+                <c:otherwise>
+                    <input type="submit" class="btn btn-primary form-control" value="CREAR" />
+
+                </c:otherwise>
+            </c:choose>
+     </div>
   </div>
   </form:form> --%>
   
   
   <%-- 3ª forma: llamada AJAX POST por JAVASCRIPT --%>
   
-  <div class="row">
+   <div class="row">
   	<div class="col-md-4 col-sm-4 col-xs-12">
 	   	<label for="matricula">Matricula</label>
     	<input type="text" class="form-control" id="matricula" name="matricula" value="${veh.matricula }"/>

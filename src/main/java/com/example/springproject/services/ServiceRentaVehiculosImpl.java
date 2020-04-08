@@ -4,6 +4,8 @@ import java.util.List;
 
 
 import com.example.springproject.daos.IDAORentaVehiculosSQL;
+import com.example.springproject.daos.VehiculosRepository;
+import com.example.springproject.model.VehiculoJPAModel;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,9 @@ public class ServiceRentaVehiculosImpl implements IServiceRentaVehiculos{
 	 */
 	@Autowired
 	IDAORentaVehiculosSQL daoRentaVehiculosSQL;
+
+	@Autowired
+	VehiculosRepository daoVehiculosRepository;
 	
 	/**
 	 * Devuelve vehiculo que coindice con la matricula pasada
@@ -60,9 +65,11 @@ public class ServiceRentaVehiculosImpl implements IServiceRentaVehiculos{
 		daoRentaVehiculosSQL.setVehiculo(vehiculo);
 		return vehiculo;
 	}
-	
-	
-	
-	
+
+	@Override
+	public List<VehiculoJPAModel> getAllVehiculosJPA() {
+		return daoVehiculosRepository.findAll();
+	}
+
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.example.springproject.model.VehiculoJPAModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,11 +51,19 @@ public class RentaVehiculosController {
 	 * @return
 	 */
 	@GetMapping("/vehicles")
-	public ResponseEntity<?> getVehiculoByMatricula(HttpServletRequest request){
+	public ResponseEntity<?> getAllVehiculos(HttpServletRequest request){
 		ResponseEntity<?> res=null;
 		res=new ResponseEntity<List<VehiculoModel>>(serviceRentaVehiculos.getAllVehiculos(),HttpStatus.OK);
 		return res;
 	}
+
+	@GetMapping("/vehicles/jpa")
+	public ResponseEntity<?> getAllVehiculosJPA(HttpServletRequest request){
+		ResponseEntity<?> res=null;
+		res=new ResponseEntity<List<VehiculoJPAModel>>(serviceRentaVehiculos.getAllVehiculosJPA(),HttpStatus.OK);
+		return res;
+	}
+
 	
 	
 	//@RequestMapping(value="vehicles",method = RequestMethod.POST)

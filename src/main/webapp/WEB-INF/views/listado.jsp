@@ -64,18 +64,25 @@
 		  </thead>
 		  <tbody id="tableListado">
 		  
-		  <%-- <c:forEach var="vehiculo" items="${flotaListado }">
-		  	<tr>
+		  <c:forEach var="vehiculo" items="${flotaListado }">
+
+              <c:set var="colorAlquilado" value="#84F361"/>
+
+              <c:if test="${vehiculo.cliente.idCliente gt 0 }">
+                <c:set var="colorAlquilado" value="#F8DCB1"/>
+              </c:if>
+
+		  	<tr style="background-color:${colorAlquilado};" onclick="redirectPage('${pageContext.request.contextPath}','pages/detalle?mat=${vehiculo.matricula }');">
 		      
 		      <td>${vehiculo.matricula }</td>
-		       <c:choose>
+		       <%-- <c:choose>
 		      	<c:when test="${vehiculo.tipo eq 'C' }">
 		      		<td style="color:red;">${vehiculo.modelo }</td>
 		      	</c:when>
 		      	<c:otherwise>
 		      		<td style="color:blue;">${vehiculo.modelo }</td>
 		      	</c:otherwise>
-		      </c:choose>
+		      </c:choose> --%>
 		      
 		      <c:set var="colorTipo" value="blue"/>
 		      <c:if test="${vehiculo.tipo eq 'C' }">
@@ -87,7 +94,7 @@
 		      <td>${vehiculo.combustible }</td>
 		      <td>${vehiculo.annioFab }</td>
 		    </tr>
-		  </c:forEach>--%>
+		  </c:forEach>
 		  
 		  <!-- 
 		  	ESTO ES UN COMENTIARIO HTML QUE SE VA A IMPRIMIR EN EL CODIGO FUENTE DE LA PAGINA
@@ -136,7 +143,7 @@
 	<script>
 	    $( document ).ready(function() {
 	    	
-	    	getVehiculos('${pageContext.request.contextPath}');
+	    	//getVehiculos('${pageContext.request.contextPath}');
 
 	    });
     </script>

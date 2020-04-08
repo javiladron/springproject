@@ -101,7 +101,7 @@ public class DAORentaVehiculosSQLImpl implements IDAORentaVehiculosSQL{
 
             String insertUpdate="";
             if(vehiculoModelBBDD==null){
-                insertUpdate="insert into vehiculo values(NULL,?,?,?,?,?,?,?,?)";
+                insertUpdate="insert into vehiculo values(NULL,?,?,?,?,?,?,?,?,?)";
             }
             else {
                 //TODO: PARA MAÑANA
@@ -129,6 +129,9 @@ public class DAORentaVehiculosSQLImpl implements IDAORentaVehiculosSQL{
             //ENTERO UNICAMENTE PARA LA OPERACION UPDATE
             if(vehiculoModelBBDD!=null){
                 pstmt.setInt(9,vehiculoModelBBDD.getIdVehiculo());
+            }
+            else{//ESTOY EN INSERT
+                pstmt.setNull(9,Types.INTEGER);
             }
             pstmt.executeUpdate();
 

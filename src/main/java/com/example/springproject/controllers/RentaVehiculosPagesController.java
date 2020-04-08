@@ -33,7 +33,7 @@ public class RentaVehiculosPagesController {
 		//obtenmos el listado de los vehiculos del garaje a trevaes del service
 		//List<VehiculoModel> flota=serviceRentaVehiculos.getAllVehiculos();
 		//model.addAttribute("flotaListado",flota);
-		//model.addAttribute("flotaListado",serviceRentaVehiculos.getAllVehiculos());
+		model.addAttribute("flotaListado",serviceRentaVehiculos.getAllVehiculos());
 		
 		return "listado";
 		//return "/WEB-INF/views/listado.jsp";
@@ -44,7 +44,7 @@ public class RentaVehiculosPagesController {
 	@GetMapping("/pages/nuevo")
 	public String crearNuevoVehiculo(HttpServletRequest request,Model model){
 		//para formulario de spring le metemos el modelo vehiculomodel vacio
-		//model.addAttribute("vehiculo",new VehiculoModel());
+		model.addAttribute("veh",new VehiculoModel());
 		return "detalle";
 		
 	}
@@ -65,7 +65,7 @@ public class RentaVehiculosPagesController {
 	}
 	
 	@PostMapping("/pages/set/formspring/vehicle")
-	public String formSpringHtmlSetVehiculo(HttpServletRequest request,Model model,@ModelAttribute("vehiculo") VehiculoModel vehiculo) {
+	public String formSpringHtmlSetVehiculo(HttpServletRequest request,Model model,@ModelAttribute("veh") VehiculoModel vehiculo) {
 		serviceRentaVehiculos.setVehiculo(vehiculo);
 		return showListado(request, model);
 	}

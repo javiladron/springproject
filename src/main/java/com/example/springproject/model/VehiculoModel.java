@@ -1,5 +1,8 @@
 package com.example.springproject.model;
 
+
+import javax.persistence.*;
+
 public class VehiculoModel {
 	
 	private Integer idVehiculo;
