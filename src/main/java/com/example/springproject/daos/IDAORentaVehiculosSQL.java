@@ -1,6 +1,7 @@
 package com.example.springproject.daos;
 
 import com.example.springproject.exceptions.SpringprojectException;
+import com.example.springproject.model.ClienteModel;
 import com.example.springproject.model.VehiculoModel;
 
 import java.util.List;
@@ -12,5 +13,7 @@ public interface IDAORentaVehiculosSQL {
     public VehiculoModel getVehiculoByMatricula(String matricula) throws SpringprojectException;
 
     public VehiculoModel setVehiculo(VehiculoModel vehiculo) throws SpringprojectException;
+
+    public List<ClienteModel> getAllAvailableCustomers() throws SpringprojectException;
 
 }

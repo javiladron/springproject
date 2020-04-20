@@ -324,6 +324,19 @@
     		
     	</select>
 	 </div>
+
+
+	 <div class="col-md-4 col-sm-4 col-xs-12">
+        <label for="modoAlquiler">Clientes disponibles</label>
+        <select class="form-control" id="clienteAlquiler" name="clienteAlquiler">
+
+
+        </select>
+     </div>
+
+
+
+
 	 <div class="col-md-4 col-sm-4 col-xs-12">
 	 	<br/>
 	   	
@@ -348,5 +361,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="<c:url value="/estaticos/js/bootstrap.bundle.min.js"/>"></script>
 	<script src="<c:url value="/estaticos/js/custom.js"/>"></script>
+
+    <script>
+	    $( document ).ready(function() {
+
+	    	getAvailableCustomers('${pageContext.request.contextPath}');
+
+	    });
+    </script>
+
 	
 </html>

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.example.springproject.daos.IDAORentaVehiculosSQL;
 import com.example.springproject.daos.VehiculosRepository;
+import com.example.springproject.model.ClienteModel;
 import com.example.springproject.model.VehiculoJPAModel;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +69,13 @@ public class ServiceRentaVehiculosImpl implements IServiceRentaVehiculos{
 
 	@Override
 	public List<VehiculoJPAModel> getAllVehiculosJPA() {
+
 		return daoVehiculosRepository.findAll();
+	}
+
+	@Override
+	public List<ClienteModel> getAllAvailableCustomers() {
+		return daoRentaVehiculosSQL.getAllAvailableCustomers();
 	}
 
 

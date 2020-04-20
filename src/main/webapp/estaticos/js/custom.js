@@ -253,6 +253,17 @@ function setVehiculo(context){
     });
 		
 }
+
+function getAvailableCustomers(context){
+    var clientesDisponibles=callServiceREST(context+"/api/get/availablecustomers","GET",null);
+    	if(isNotEmpty(clientesDisponibles)){
+    		var htmlBuffer='<option value="-">Sin alquilar</option>';
+    		$.each(clientesDisponibles, function(i, cliente) {
+                htmlBuffer+='<option value="'+cliente.idCliente+'">'+cliente.nombre+' '+cliente.apellidos+' ('+cliente.dni+')</option>';
+    		});
+    		$("#clienteAlquiler").html(htmlBuffer);
+    	}
+}
 	
 	
 	

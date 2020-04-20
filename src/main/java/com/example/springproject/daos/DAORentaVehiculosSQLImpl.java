@@ -150,6 +150,35 @@ public class DAORentaVehiculosSQLImpl implements IDAORentaVehiculosSQL{
         return vehiculo;
     }
 
+    @Override
+    public List<ClienteModel> getAllAvailableCustomers() throws SpringprojectException {
+        List<ClienteModel> lista=new ArrayList<ClienteModel>();
+        try{
+            checkDriverMySQL();
+
+            String query="select * from cliente where idCliente not in (select DISTINCT idCliente from vehiculo where idCliente is not null)";
+
+            PreparedStatement pstmt=connection.prepareStatement(query);//SQL
+
+            ResultSet rs=pstmt.executeQuery();//para select usamos este metodo
+
+            while(rs.next()){
+                ClienteModel cliente=new ClienteModel();
+                cliente.setIdCliente(rs.getInt(1));
+                cliente.setNombre(rs.getString(2));
+                cliente.setApellidos(rs.getString(3));
+                cliente.setEdad(rs.getInt(4));
+                cliente.setDni(rs.getString(5));
+                lista.add(cliente);
+            }
+
+        }catch(Exception ex){
+            ex.printStackTrace();
+            throw new SpringprojectException("Error en dao getAllAvailableCustomers: "+ex.getMessage());
+        }
+        return lista;
+    }
+
     private void checkDriverMySQL() throws SQLException {
 
         if(connection==null){

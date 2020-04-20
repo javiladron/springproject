@@ -2,6 +2,7 @@ package com.example.springproject.services;
 
 import java.util.List;
 
+import com.example.springproject.model.ClienteModel;
 import com.example.springproject.model.VehiculoJPAModel;
 import com.example.springproject.model.VehiculoModel;
 
@@ -14,6 +15,8 @@ public interface IServiceRentaVehiculos {
 	public VehiculoModel setVehiculo(VehiculoModel vehiculo);
 
 	public List<VehiculoJPAModel> getAllVehiculosJPA();
+
+	public List<ClienteModel> getAllAvailableCustomers();
 	
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.example.springproject.model.ClienteModel;
 import com.example.springproject.model.VehiculoJPAModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -71,6 +72,13 @@ public class RentaVehiculosController {
 	public ResponseEntity<?> setVehiculo(HttpServletRequest request,@RequestBody VehiculoModel vehiculo){
 		ResponseEntity<?> res=null;
 		res=new ResponseEntity<VehiculoModel>(serviceRentaVehiculos.setVehiculo(vehiculo),HttpStatus.OK);
+		return res;
+	}
+
+	@GetMapping("/get/availablecustomers")
+	public ResponseEntity<?> getAllAvailableCustomers(HttpServletRequest request){
+		ResponseEntity<?> res=null;
+		res=new ResponseEntity<List<ClienteModel>>(serviceRentaVehiculos.getAllAvailableCustomers(),HttpStatus.OK);
 		return res;
 	}
 }
